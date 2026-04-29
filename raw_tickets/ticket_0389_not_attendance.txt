@@ -1,0 +1,17 @@
+LỖI KHÔNG ĐIỂM DANH ĐƯỢC CHO GIÁO VIÊN (#03750)
+Giai đoạn: Chờ thông tin
+Báo cáo về: 24/04/2026 14:05
+Dear team kỹ thuật,
+
+Em tên Trần Thị Thanh Khang
+
+Vị trí: CS
+
+BU: Tên Lửa
+
+Lý do: Lớp TL-ROB-ARMA17 demo vào ngày 23/04 tuy nhiên Teacher chưa thêm giám khảo vào lớp nên chưa điểm danh được và trạng thái lớp finished, có xin để chuyển lại running để điểm danh cho giáo viên và giám khảo tuy nhiên hệ thống LMS đang bị lỗi như ảnh là "Teacher not in this class".
+
+Em mong team kỹ thuật hỗ trợ giúp em ạ.
+
+Em xin cảm ơn team kỹ thuật
+

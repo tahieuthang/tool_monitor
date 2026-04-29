@@ -1,0 +1,15 @@
+
+BU DĨ AN - NHỜ HỖ TRỢ FIX LẠI LỖI TÀI KHOẢN CHO HỌC VIÊN (#03742)
+Giai đoạn: Chờ thông tin
+Báo cáo về: 24/04/2026 09:41
+
+Thân gửi team Tech, 
+
+Em có trường hợp cần hỗ trợ cụ thể như sau:
+
+Học viên: Lê Nguyễn Huy Hoàng - 26001964
+
+Hiện tai em không thể thêm HV vào lớp học trên CRM, hệ thống ko hiện phần phương thức học tập và ko có nút enroll HV vào lớp. Nhờ tem hỗ trợ  kiểm tra và fix lại lỗi giúp em ạ.
+ 
+MindX Dĩ An
+Em cảm ơn team nhiều ạ!

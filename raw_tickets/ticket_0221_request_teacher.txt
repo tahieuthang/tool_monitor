@@ -1,0 +1,14 @@
+
+Lớp không hiển thị trong "Request Teacher" (#03727)
+Giai đoạn: Chờ thông tin
+Báo cáo về: 23/04/2026 10:19
+
+Kính gửi team Tech thông tin như sau ạ:
+
+Mã lớp: DA-ROB-SEMIB10 đã được bộ phận CS tạo request như trong ảnh.
+
+Nhưng khi TE vào phần "Request Teacher" để điều phối Giáo Viên, thì lớp lại không hiển thị ạ!
+
+Kính nhờ team hỗ trợ phần này giúp BU với ạ
+
+Xin chân thành cảm ơn team!

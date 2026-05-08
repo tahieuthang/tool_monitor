@@ -3,7 +3,14 @@
     "build": "tsc && tsc-alias"
   },
   "dependencies": {
-    "@boundaryml/baml": "^0.222.0"
+    "@boundaryml/baml": "^0.222.0",
+    "@huggingface/transformers": "^3.8.1",
+    "@lancedb/lancedb": "^0.27.2",
+    "chokidar": "^5.0.0",
+    "crypto": "^1.0.1",
+    "express": "^5.2.1",
+    "llamaindex": "^0.12.1",
+    "simple-git": "^3.36.0"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",

@@ -1,25 +1,28 @@
-import { InvalidDataError } from "@domain/errors/InvalidDataError"
+import { InvalidDataError } from "@domain/errors/InvalidDataError";
 
 export interface WikiDocumentProps {
-  template_filename: string;
-  usage_description: string;
+  id: string;
+  markdown_content: string;
+  tokens: string[];
 }
 
 export class WikiDocument {
-  public template_filename: string;
-  public usage_description: string;
+  public id: string;
+  public markdown_content: string;
+  public tokens: string[];
 
   constructor(props: WikiDocumentProps) {
-    this.template_filename = props.template_filename;
-    this.usage_description = props.usage_description;
+    this.id = props.id;
+    this.markdown_content = props.markdown_content;
+    this.tokens = props.tokens;
     this.validate();
   }
 
   private validate() {
-    if (!this.template_filename) {
-      throw new InvalidDataError("WikiDocument ID is required");
+    if (!this.id) {
+      throw new InvalidDataError("WikiDocument id is required");
     }
-    if (!this.usage_description) {
+    if (!this.markdown_content) {
       throw new InvalidDataError("WikiDocument content is required");
     }
   }

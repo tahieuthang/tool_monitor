@@ -19,10 +19,14 @@
       ],
       "@infrastructure/*": [
         "./src/infrastructure/*"
+      ],
+      "@adapters/*": [
+        "./src/adapters/*"
       ]
     },
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "moduleResolution": "node",
     "ignoreDeprecations": "6.0",

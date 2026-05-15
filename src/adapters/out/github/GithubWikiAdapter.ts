@@ -7,7 +7,7 @@ import * as crypto from "crypto";
 
 export class GithubWikiAdapter implements IWikiSourcePort {
   public async fetchWikiPages(): Promise<WikiDocument[]> {
-    const url = `https://raw.githubusercontent.com/QuanAnhDo/wiki-hub/main/5.-Response-Templates/5.5-Template-Description.md`;
+    const url = `${process.env.GITHUB_TEMPLATE_URL}`;
     const response = await axios.get(url, {
       headers: {
         'User-Agent': 'Wiki-Lens-App'

@@ -4,12 +4,16 @@ import { config } from "@infrastructure/config";
 
 export const apiRouter = Router();
 
-// Simple Auth Middleware
+// Static token: Authorization: Bearer <API_SECRET_TOKEN> (shared secret, not JWT)
 const requireAuth = (req: Request, res: Response, next: NextFunction) => {
-    const authHeader = req.headers.authorization;
-    const expected = `Bearer ${config.API_KEY}`;
-
-    if (!authHeader || authHeader !== expected) {
+    const raw = req.headers.authorization?.trim();
+    if (!raw) {
+        res.status(401).json({ error: "Unauthorized" });
+        return;
+    }
+    const m = /^Bearer\s+(.+)$/i.exec(raw);
+    const presented = m?.[1]?.trim() ?? "";
+    if (!presented || presented !== config.API_SECRET_TOKEN) {
         res.status(401).json({ error: "Unauthorized" });
         return;
     }

@@ -26,12 +26,16 @@ export class TicketController {
 
     // Return response
     res.status(200).json({
-      total_tickets: domainTickets.length,
-      results: results.map(r => ({
-        ticket_id: r.ticket_id,
-        status: r.status,
-        matches: r.matches,
-      }))
+      results: results.map((r) => {
+        const row: { ticket_id: string; matches: typeof r.matches; message?: string } = {
+          ticket_id: r.ticket_id,
+          matches: r.matches,
+        };
+        if (r.message !== undefined) {
+          row.message = r.message;
+        }
+        return row;
+      }),
     });
   };
 }

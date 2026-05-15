@@ -1,5 +1,6 @@
 import { IWikiSourcePort } from "@domain/ports/out/IWikiSourcePort";
 import { WikiDocument } from "@domain/entities/WikiDocument";
+import { extractHistoryKeywords } from "@domain/wikiSearchText";
 import axios from "axios";
 import { config } from "@infrastructure/config";
 import * as crypto from "crypto";
@@ -29,7 +30,7 @@ export class GithubWikiAdapter implements IWikiSourcePort {
       const id = crypto.randomBytes(3).toString("hex");
       const fullContent = `Template: ${filename}\nDescription: ${description}`;
 
-      const tokens = this.tokenize(fullContent);
+      const tokens = extractHistoryKeywords(fullContent);
 
       docs.push(new WikiDocument({
         id,
@@ -39,12 +40,5 @@ export class GithubWikiAdapter implements IWikiSourcePort {
     }
 
     return docs;
-  }
-
-  private tokenize(text: string): string[] {
-    return text.toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .split(/\s+/)
-      .filter(t => t.length > 2);
   }
 }

@@ -6,7 +6,10 @@ dotenv.config();
 const envSchema = z.object({
   PORT: z.string().default("3000"),
   GITHUB_PAT: z.string().optional(), // Make it optional if public repo
-  API_KEY: z.string().min(1, "API_KEY is required for security"), // Require API key
+  API_SECRET_TOKEN: z
+    .string()
+    .min(1, "API_SECRET_TOKEN is required for authentication")
+    .transform((s) => s.trim()), // trim trailing newline/spaces from .env
 });
 
 const parsed = envSchema.safeParse(process.env);

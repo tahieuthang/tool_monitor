@@ -39,7 +39,7 @@ export class RamKnowledgeCacheAdapter implements IKnowledgeCachePort {
     this.historyMap.set(hash, docs.map(d => d.id));
   }
 
-  public searchByTokens(tokens: string[], topN: number): WikiDocument[] {
+  public searchByTokens(tokens: string[]): WikiDocument[] {
     const scores = new Map<string, number>();
 
     for (const token of tokens) {
@@ -53,9 +53,16 @@ export class RamKnowledgeCacheAdapter implements IKnowledgeCachePort {
 
     if (scores.size === 0) return [];
 
-    const sortedIds = Array.from(scores.entries()).sort((a, b) => b[1] - a[1]);
-    const topIds = sortedIds.slice(0, topN).map(entry => entry[0]);
-    
-    return topIds.map(id => this.caseMap.get(id)).filter((doc): doc is WikiDocument => !!doc);
+    const maxScore = Math.max(...scores.values());
+    // Drop weak tail: keep docs at least ~half the best score (min 2 when best ≥3), so generic single-token hits fall away when a stronger match exists.
+    const threshold =
+      maxScore <= 1 ? 1 : maxScore === 2 ? 2 : Math.max(2, Math.ceil(maxScore * 0.52));
+
+    const sortedIds = Array.from(scores.entries())
+      .filter(([, score]) => score >= threshold)
+      .sort((a, b) => b[1] - a[1]);
+    return sortedIds
+      .map(entry => this.caseMap.get(entry[0]))
+      .filter((doc): doc is WikiDocument => !!doc);
   }
 }

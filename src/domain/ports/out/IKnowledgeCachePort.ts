@@ -10,6 +10,6 @@ export interface IKnowledgeCachePort {
     /** Cache a result for Layer 1 */
     saveMatch(hash: string, docs: WikiDocument[]): void;
 
-    /** Layer 2: Inverted Index search */
-    searchByTokens(tokens: string[], topN: number): WikiDocument[];
+    /** Layer 2: Inverted Index — scored by token overlap; keeps docs near the top score (relative cutoff), sorted descending */
+    searchByTokens(tokens: string[]): WikiDocument[];
 }

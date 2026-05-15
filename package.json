@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "test": "jest"
   },
   "dependencies": {
     "@boundaryml/baml": "^0.222.0",
